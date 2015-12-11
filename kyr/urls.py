@@ -15,6 +15,9 @@ from django.views import defaults as dj_default_views
 
 # Know Your Representative Stuff
 from kyr.base import views as base_views
+from kyr.complaints.api import ComplaintViewSet
+from kyr.parliament.api import MemberOfParliamentViewSet
+
 
 from .routers import router
 
@@ -38,6 +41,11 @@ urlpatterns = [
     url(r'^', include("kyr.pages.urls", namespace="pages")),
 
     # Your stuff: custom urls go here
+    url(r'^api/complaints/$', ComplaintViewSet.as_view()),
+    url(r'^api/membersearch/name/(?P<name_of_the_mp>.+)/$',
+        MemberOfParliamentViewSet.as_view()),
+    # For the above URL pattern We need a better REGEX or something of that sort to handle
+    # name which is being searched
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
