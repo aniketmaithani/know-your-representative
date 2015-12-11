@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="aniketmaithani">
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Errors - Know Your Representative</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Know Your Representative</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../overview/">Overview & Usages</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../endpoints/">REST Endpoints</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Errors</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../changelog/">Changelog</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Backend <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../backend/server_config/">Server Configurations</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../backend/coding_rules/">Coding Rules</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../release_notes/">Release Notes</a>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../endpoints/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../changelog/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/aniketmaithani/know-your-representative">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#errors">Errors</a></li>
+        
+            <li><a href="#generic-errors">Generic Errors</a></li>
+        
+            <li><a href="#validation-errors">Validation Errors</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="errors">Errors</h1>
+<h2 id="generic-errors">Generic Errors</h2>
+<p>The <code>status_code</code> in response header complies with the standard http response headers. We expect developers to make use of them to display appropriate error dialogs.</p>
+<p>For json requests, the API will return the error in the following format:</p>
+<pre><code>{
+    "_error_message": "short description of error message",
+    "_error_type": "clustr.exceptions."
+}
+</code></pre>
+<h2 id="validation-errors">Validation Errors</h2>
+<p>For <code>POST</code>, <code>PATCH</code>, <code>PUT</code> &amp; <code>DELETE</code> methods, validation error may be raised. </p>
+<p>It will return (Status: <code>400 Bad Request</code>). </p>
+<p>The response body will contain json in the format same as Generic Error above with <code>_error_message</code> key or the key will contain the name of <strong>parameter</strong> that is invalid. For example, if you try to update <code>email</code> which exceeds it&rsquo;s max-length of 255 and <code>username</code> which contains invalid charaters. The error response body will of the format:</p>
+<pre><code>Status: 400 Bad Request
+</code></pre>
+
+<pre><code>{
+    &quot;email&quot;: [&quot;contains 300 characters, max. is 255.&quot;],
+    &quot;username&quot;: [&quot;only alphanumberic charaters with '_', '-' and '.' without spaces is allowed.&quot;, &quot;contains 300 characters, max. is 255.&quot;],
+}
+</code></pre>
+
+<p>For displaying appropriate error message, the following algorithm can be used:</p>
+<pre>
+# accepts optional "field" parameter
+-> Check if status_code is => 400
+-> If "_error_message" key is present in response, return it's value.
+-> Check if key "field" is present in the response body
+  -> Loop through all the array elements in it's value and construct the error message string.
+</pre>
+
+<p>In pseudo-function form:</p>
+<pre><code class="python">def get_error_message(response_json, fields=[]):
+    '''Converts json error response to a string.
+    '''
+    error_string = response_json.get('_error_message', None)
+
+    if error_string:
+        return error_string
+
+    for field in fields:
+        field_errors = response_json.get(field)
+        if field_errors:
+            for error_msg in field_errors:
+                # modify as per requirement
+                error_string += field + &quot;- &quot; + error_msg + '\n' 
+
+    return error_string if error_string else &quot;&quot;
+</code></pre>
+
+<p>Example:</p>
+<pre><code class="python">data = {
+ &quot;email&quot;: &quot;verylongemail234234234234234234234234234234234@asdasdf.com&quot;,
+ &quot;username&quot;: &quot;verylongusernameagain_with_special_chars@%$&quot;
+}
+
+response = requests.post('http://project.fueled.com/api', data).json
+username_error_msgs = get_error_message(response, ['username'])
+
+print username_error_msgs
+# username - only alphanumberic charaters with '_', '-' and '.' without spaces is allowed.
+# username - contains 300 characters, max. is 255.
+
+all_errors = get_error_message(response, ['username', 'email'])
+
+print all_errors
+# username - contains 300 characters, max. is 255.
+# username - only alphanumberic charaters with '_', '-' and '.' without spaces is allowed.
+# email - contains 300 characters, max. is 255.
+</code></pre></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <p>Copyright &copy; 2015, <a href=http://fueled.com>Fueled</a>.</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/github_issues_link.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
