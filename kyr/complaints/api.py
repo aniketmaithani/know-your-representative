@@ -4,7 +4,7 @@ from __future__ import absolute_import, unicode_literals
 # Third Party Stuff
 from .models import Complaints
 from .serializers import ComplaintSerializer
-from rest_framework import generics, mixins, views
+from rest_framework import generics, mixins
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
