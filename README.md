@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aniketmaithani/know-your-representative.svg?branch=master)](https://travis-ci.org/aniketmaithani/know-your-representative)
+
 Know Your Representative
 ==============================
 
