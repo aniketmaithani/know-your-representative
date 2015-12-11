@@ -36,32 +36,32 @@ The deployment are managed via travis, but for the first time you'll need to set
 Run these commands to deploy this project on Heroku (substitue all references of `<heroku-app-name>` with the name your heroku application.)
 
 ```
-heroku create --ssh-git <heroku-app-name>
+heroku create --ssh-git know-your-representative
 
-heroku addons:create heroku-postgresql --app=<heroku-app-name>
-heroku pg:backups schedule DATABASE_URL --at '04:00 UTC' --app=<heroku-app-name>
-heroku pg:promote DATABASE_URL --app=<heroku-app-name>
+heroku addons:create heroku-postgresql --app=know-your-representative
+heroku pg:backups schedule DATABASE_URL --at '04:00 UTC' --app=know-your-representative
+heroku pg:promote DATABASE_URL --app=know-your-representative
 
-heroku addons:create mailgun --app=<heroku-app-name>
+heroku addons:create mailgun --app=know-your-representative
 heroku config:set EMAIL_HOST="\$MAILGUN_SMTP_SERVER" \
                   EMAIL_HOST_USER="\$MAILGUN_SMTP_LOGIN" \
-                  EMAIL_HOST_PASSWORD="\$MAILGUN_SMTP_PASSWORD" --app=<heroku-app-name>
+                  EMAIL_HOST_PASSWORD="\$MAILGUN_SMTP_PASSWORD" --app=know-your-representative
 
-heroku addons:create redistogo --app=<heroku-app-name>
-heroku addons:create redismonitor --url `heroku config:get REDISTOGO_URL --app=<heroku-app-name>` --app=<heroku-app-name>
+heroku addons:create redistogo --app=know-your-representative
+heroku addons:create redismonitor --url `heroku config:get REDISTOGO_URL --app=know-your-representative` --app=know-your-representative
 
-heroku addons:create newrelic --app=<heroku-app-name>
-heroku config:set NEW_RELIC_APP_NAME=<new-relic-app-name> --app=<heroku-app-name>
+heroku addons:create newrelic --app=know-your-representative
+heroku config:set NEW_RELIC_APP_NAME=<new-relic-app-name> --app=know-your-representative
 
 heroku config:set DJANGO_SETTINGS_MODULE='settings.production' \
 DJANGO_SECRET_KEY=`openssl rand -base64 32` \
-SITE_DOMAIN=<heroku-app-name>.herokuapp.com \
+SITE_DOMAIN=know-your-representative.herokuapp.com \
 SITE_SCHEME=https \
-SITE_NAME=DJANGO_SITE_NAME_HERE --app=<heroku-app-name>
+SITE_NAME=DJANGO_SITE_NAME_HERE --app=know-your-representative
 
 git push heroku master
-heroku run python manage.py createsuperuser --app=<heroku-app-name>
-heroku open --app=<heroku-app-name>
+heroku run python manage.py createsuperuser --app=know-your-representative
+heroku open --app=know-your-representative
 ```
 
 The following configuration doesn't allow you to "by default" upload the media on the heroku server as heroku does
