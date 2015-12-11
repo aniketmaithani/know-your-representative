@@ -21,16 +21,3 @@ notifications:
   email:
     on_success: change  # [always|never|change]
     on_failure: always  # [always|never|change]
-deploy:
-  provider: heroku
-  buildpack: python
-  strategy: api
-  api_key:
-    # travis encrypt $(heroku auth:token) --add deploy.api_key
-    secure: <add_heroku_auth_token_here>
-  app:
-    master: kyr-dev
-    qa: kyr-qa
-    prod: kyr-prod
-  on:
-    repo: aniketmaithani/know-your-representative
