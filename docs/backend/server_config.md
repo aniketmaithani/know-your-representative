@@ -33,7 +33,7 @@ The deployment are managed via travis, but for the first time you'll need to set
 
 ### Heroku
 
-Run these commands to deploy this project on Heroku (substitue all references of `<heroku-app-name>` with the name your heroku application.)
+Run these commands to deploy this project on Heroku 
 
 ```
 heroku create --ssh-git know-your-representative
