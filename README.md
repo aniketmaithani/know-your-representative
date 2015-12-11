@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/aniketmaithani/know-your-representative.svg?branch=master)](https://travis-ci.org/aniketmaithani/know-your-representative)
+[![Build Status](https://travis-ci.org/aniketmaithani/know-your-representative.svg?branch=master)](https://travis-ci.org/aniketmaithani/know-your-representative) [![Coverage Status](https://coveralls.io/repos/aniketmaithani/know-your-representative/badge.svg?branch=master&service=github)](https://coveralls.io/github/aniketmaithani/know-your-representative?branch=master)
 
 Know Your Representative
 ==============================
