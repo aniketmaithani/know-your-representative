@@ -23,6 +23,8 @@ class MemberOfParliamentViewSet(generics.ListAPIView):
         whose name is being searched.
         """
         name_of_the_mp = self.kwargs['name_of_the_mp']
-        return MemberOfParliament.objects.filter(name_of_the_mp=name_of_the_mp)
+        qs = MemberOfParliament.objects.filter(name_of_the_mp=name_of_the_mp)
+        serializer = MemberOfParliamentSerializer(qs, many=True, allow_null=True)
+        return serializer.data
 
 # Some Exception Handling Would be Good Here

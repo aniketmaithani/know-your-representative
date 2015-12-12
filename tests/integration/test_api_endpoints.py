@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 
 # Pytest
 import pytest
+from .. factories import MPFactory
 
 pytestmark = pytest.mark.django_db
 
@@ -30,3 +32,18 @@ def test_api_endpoints(client):
     }
     content_post = client.post(url, data)
     assert content_post.status_code == 400  # Bad Request [FIELD REQUIRED]
+
+
+def test_get_method(client):
+    test_mp = MPFactory.create()  # Creating a Test MP
+
+    url = reverse('member-search',
+                  kwargs={'name_of_the_mp': test_mp.name_of_the_mp})
+    data = {}
+    response = client.post(url, data)
+    assert response.status_code == 405  # POST Method Not Allowed
+    content_get = client.get(url)
+    assert content_get.status_code == 200
+    # Testing whether the value exists or not
+    assert content_get.data['results'][0][
+        'name_of_the_mp'] == test_mp.name_of_the_mp

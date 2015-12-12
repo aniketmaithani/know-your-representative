@@ -41,9 +41,9 @@ urlpatterns = [
     url(r'^', include("kyr.pages.urls", namespace="pages")),
 
     # Your stuff: custom urls go here
-    url(r'^api/complaints/$', ComplaintViewSet.as_view()),
+    url(r'^api/complaints/$', ComplaintViewSet.as_view(), name='complaint'),
     url(r'^api/membersearch/name/(?P<name_of_the_mp>.+)/$',
-        MemberOfParliamentViewSet.as_view()),
+        MemberOfParliamentViewSet.as_view(), name='member-search'),
     # For the above URL pattern We need a better REGEX or something of that sort to handle
     # name which is being searched
 
