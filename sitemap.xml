@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,25 +13,25 @@
         
     <url>
      <loc>None/api/overview/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/api/endpoints/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/api/errors/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/api/changelog/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,13 +41,13 @@
         
     <url>
      <loc>None/backend/server_config/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/backend/coding_rules/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -56,7 +56,7 @@
     
     <url>
      <loc>None/release_notes/</loc>
-     <lastmod>2015-12-11</lastmod>
+     <lastmod>2015-12-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
