@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'versatileimagefield',  # https://github.com/WGBH/django-versatileimagefield/
     'kyr.complaints',  # Complaints App for KYR
     'kyr.parliament',  # Parliament App for KYR
+    'kyr.geo',  # App Containing Constituency Data
 )
 
 # INSTALLED APPS CONFIGURATION
