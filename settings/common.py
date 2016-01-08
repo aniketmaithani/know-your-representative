@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'flat',  # Needs to be before django.contrib.admin, https://github.com/elky/django-flat-theme
     'django.contrib.admin',
     # 'django.contrib.humanize',  # Useful template tags
+    'registration',  # Registration App
 
     'kyr.base',
     'kyr.users',
@@ -54,6 +55,14 @@ INSTALLED_APPS = (
     'kyr.parliament',  # Parliament App for KYR
     'kyr.geo',  # App Containing Constituency Data
 )
+
+
+# Registration Settings
+
+# One-week activation window;
+ACCOUNT_ACTIVATION_DAYS = 1
+REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
+
 
 # INSTALLED APPS CONFIGURATION
 # ==========================================================================

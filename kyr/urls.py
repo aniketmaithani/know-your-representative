@@ -46,6 +46,8 @@ urlpatterns = [
         MemberOfParliamentViewSet.as_view(), name='member-search'),
     # For the above URL pattern We need a better REGEX or something of that sort to handle
     # name which is being searched
+    # Registration Accounts Links
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
